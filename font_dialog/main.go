@@ -59,7 +59,9 @@ func InitComponents(app *widgets.QMainWindow) {
 		// 这一行代码弹出字体选择对话框，GetFont2()方法返回字体名称和ok参数，
 		//如果用户点击了ok他就是True,否则就是false
 		ok := false
-		font := widgets.NewQFontDialog(widget).GetFont2(&ok, widget)
+		initialFont := gui.NewQFont2("Times", 100, 0, true)
+		font := widgets.NewQFontDialog(app).
+			GetFont(&ok, initialFont, app, "xxx", widgets.QFontDialog__DontUseNativeDialog)
 		// 如果我们点击了ok，标签的字体就会被改变
 		if ok {
 			lbl.SetFont(font)

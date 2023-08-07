@@ -43,30 +43,24 @@ func InitMainWindow() *widgets.QMainWindow {
 
 // InitComponents 初始化组件
 func InitComponents(app *widgets.QMainWindow) {
-	// 子按钮
-	// exitAction := widgets.NewQAction3(gui.NewQIcon5("images/app.ico"), "&Exit", app)
-	// // 快捷键，自定义
-	// exitAction.SetShortcut(gui.NewQKeySequence2("Ctrl+Q", gui.QKeySequence__NativeText))
-	// // 事件触发
-	// exitAction.ConnectTriggered(func(checked bool) {
-	// 	app.Close()
-	// })
-
-	// var actions []*widgets.QAction
-	// actions = append(actions, exitAction)
-
-	// 创建工具栏
-	// toolbar := widgets.NewQToolBar("Exit", app)
-	toolbar := app.AddToolBar3("Tools")
-
-	// 子按钮
-	exitAction := toolbar.AddAction2(gui.NewQIcon5("images/app.ico"), "&Exit")
+	// 退出操作
+	exitAction := widgets.NewQAction3(gui.NewQIcon5("images/app.ico"), "&Exit", nil)
 	// 快捷键，自定义
 	exitAction.SetShortcut(gui.NewQKeySequence2("Ctrl+Q", gui.QKeySequence__NativeText))
+	// 提示语
+	exitAction.SetStatusTip("Exit application")
 	// 事件触发
 	exitAction.ConnectTriggered(func(checked bool) {
 		app.Close()
 	})
+
+	actions := widgets.NewQActionGroup(app)
+	actions.AddAction(exitAction)
+
+	// 创建工具栏
+	// toolbar := widgets.NewQToolBar("Exit", app)
+	toolbar := app.AddToolBar3("Tools")
+	toolbar.AddActions(actions.Actions())
 }
 
 func main() {

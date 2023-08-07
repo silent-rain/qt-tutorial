@@ -43,23 +43,26 @@ func InitMainWindow() *widgets.QMainWindow {
 
 // InitComponents 初始化组件
 func InitComponents(app *widgets.QMainWindow) {
+	// 退出操作
+	exitAction := widgets.NewQAction3(gui.NewQIcon5("images/app.ico"), "&Exit", nil)
+	// 快捷键，自定义
+	exitAction.SetShortcut(gui.NewQKeySequence2("Ctrl+Q", gui.QKeySequence__NativeText))
+	// 提示语
+	exitAction.SetStatusTip("Exit application")
+	// 事件触发
+	exitAction.ConnectTriggered(func(checked bool) {
+		app.Close()
+	})
+
+	actions := widgets.NewQActionGroup(app)
+	actions.AddAction(exitAction)
+
 	//创建一个菜单栏
 	// menubar := widgets.NewQMenuBar(app)
 	menubar := app.MenuBar()
 	//添加菜单
 	fileMenu := menubar.AddMenu2("&File")
-
-	// 创建一个事件和一个特定的图标和一个“退出”的标签。
-	exitAction := fileMenu.AddAction2(gui.NewQIcon5("images/app.ico"), "&Exit")
-	// 快捷键，自定义
-	exitAction.SetShortcut(gui.NewQKeySequence2("Ctrl+Q", gui.QKeySequence__NativeText))
-	// 创建一个鼠标指针悬停在该菜单项上时的提示
-	exitAction.SetStatusTip("Exit application")
-	// 事件触发
-	exitAction.ConnectTriggered(func(checked bool) {
-		// 当我们点击菜单的时候，调用 app.quit,终止应用程序。
-		app.Close()
-	})
+	fileMenu.AddActions(actions.Actions())
 }
 
 func main() {

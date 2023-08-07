@@ -2,7 +2,10 @@
 
 ## 在GOPATH（全局安装）模式
 ```shell
-export GO111MODULE=off; go get -v github.com/therecipe/qt/cmd/... && $(go env GOPATH)/bin/qtsetup test && $(go env GOPATH)/bin/qtsetup -test=false
+export GO111MODULE=off  \
+&& go get -v github.com/therecipe/qt/cmd/... \
+&& go install -v -tags=no_env github.com/therecipe/qt/cmd/... \
+&& $(go env GOPATH)/bin/qtsetup -test=false
 ```
 
 ## 在模块（每个项目）模式下（要解决 GFW 问题，您可以使用如下代理GOPROXY=https://goproxy.io：）
@@ -21,7 +24,7 @@ GOWORK=off qtdeploy -fast test desktop
 ```shell
 go mod vendor
 
-GOWORK=off qtdeploy -qt_dir=../vendor/github.com/therecipe/env_linux_amd64_513 -qt_version=5.15.10 build desktop main.go
+GOWORK=off qtdeploy -qt_dir=../vendor/github.com/therecipe/env_linux_amd64_513 -qt_version=5.13.0 build desktop main.go
 ```
 
 ## qt编译2

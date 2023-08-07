@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/therecipe/qt/core"
@@ -48,6 +47,7 @@ func InitComponents(app *widgets.QMainWindow) {
 	textEdit := widgets.NewQTextEdit(widget)
 	textEdit.Resize2(300, 200)
 
+	// 退出操作
 	exitAction := widgets.NewQAction3(gui.NewQIcon5("images/app.ico"), "&Exit", nil)
 	// 快捷键，自定义
 	exitAction.SetShortcut(gui.NewQKeySequence2("Ctrl+Q", gui.QKeySequence__NativeText))
@@ -63,17 +63,16 @@ func InitComponents(app *widgets.QMainWindow) {
 
 	//创建一个菜单栏
 	// menubar := widgets.NewQMenuBar(app)
-	// menubar := app.MenuBar()
+	menubar := app.MenuBar()
 	// 添加菜单
-	// fileMenu := menubar.AddMenu2("&File")
+	fileMenu := menubar.AddMenu2("&File")
 	// 添加按钮
-	fmt.Printf("============ %p\n", actions.Actions())
-	// fileMenu.AddActions(actions.Actions())
+	fileMenu.AddActions(actions.Actions())
 
 	// 创建工具栏
 	// toolbar := widgets.NewQToolBar("Exit", app)
-	// toolbar := app.AddToolBar3("Exit")
-	// toolbar.AddActions(actions.Actions())
+	toolbar := app.AddToolBar3("Exit")
+	toolbar.AddActions(actions.Actions())
 }
 
 func main() {

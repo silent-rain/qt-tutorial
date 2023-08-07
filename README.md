@@ -17,7 +17,7 @@
 - [x] [状态栏](./statusbar)
 - [x] [菜单栏](./menubar)
 - [x] [工具栏](./toolbar)
-- [ ] [工具栏和状态栏综合](./toolbar_and_statusbar)
+- [x] [工具栏和状态栏综合](./toolbar_and_statusbar)
 - [x] [信号槽](./signal_slot)
 - [x] [自定义按键事件处理器](./custom_key_press_event)
 - [ ] [发出信号与接收信号](./widget_sender_receiver)
@@ -25,10 +25,10 @@
 - [x] [自定义Signal信号封装](./gosignal)
 - [x] [自定义Signal信号示例](./custom_signal)
 - [x] [鼠标移动发出信号](./custom_signal_mouse_move_event)
-- [ ] [输入对话框QInputDialog](./input_dialog)
-- [ ] [密码输入对话框QInputDialog](./password_input_dialog)
+- [x] [输入对话框QInputDialog](./input_dialog)
+- [x] [密码输入对话框QInputDialog](./password_input_dialog)
 - [x] [颜色对话框QColorDialog](./color_dialog)
-- [ ] [字体对话框QFontDialog](./font_dialog)
+- [x] [字体对话框QFontDialog](./font_dialog)
 - [x] [文件对话框QFileDialog](./file_dialog)
 - [x] [文件对话框QFileDialog-目录](./file_dialog_by_dir)
 - [x] [复选框控件QCheckBox](./check_box)
@@ -54,18 +54,10 @@
 - [ ] [加载UI文件QUiLoader](./ui_loader)
 
 
-
-
-
-
-
-
-
-
 ## 相关文档
 - [交叉编译文档](./docs/交叉编译文档.md)
 - [goqtuic工具](./docs/goqtuic工具.md)
-- [Qt工具文档](./docs/Qt工具文档.md)
+- [Qt环境安装](./docs/Qt环境安装.md)
 
 
 ## 参考文档
